@@ -11,8 +11,9 @@ mapping application to support social development planning
    * `$ sudo apt-get install libgdal-dev gdal-bin`
 * PostgreSQL (we used 9.3) 
 * PostGIS (we used 2.1)
+* QGIS server
 
-### Instructions for Loading Data into Database
+### Instructions for loading data into the database
 
 The bash data loading scripts create a PostgreSQL geodatabase, call a script to clean the database, and will append all the shape files into their respective tables. The bash scripts assume that data is loaded from a shared btsync folder, hard-coded with following path `/home/sync/cccs-maps/shapefiles/`. The directory structure for any collaborative project should remain the same across all servers so that the script will run smoothly. Bash uploading scripts are specific to particular project schema, but can be used as an extendable pattern to facilitate data loading when starting new projects. Adjust the scripts as necessary before running the loader for a new project.
 
