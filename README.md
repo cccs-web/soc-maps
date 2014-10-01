@@ -30,7 +30,7 @@ In the btsync folder there is a database dump that has all the data loaded in an
 
 ## Data schema
 
-The project utilizes different schema to differentiate conceptual groups of data (e.h. public vs. private data, group1 vs group1). *soc-web* utilizes a public schema, which references shapefiles in our public folders. The corresponding `public.txt` lists all such public files that are used as initial tables in the database, to which other layers are appended.
+The project utilizes different schema to differentiate conceptual groups of data (e.h. public vs. private data, group1 vs group1). **[soc-maps](https://github.com/cccs-web/soc-maps/)** utilizes a public schema, which references shapefiles in our public folders. The corresponding `public.txt` lists all such public files that are used as initial tables in the database, to which other layers are appended.
 
 The `podes.txt` file gives an example of how additional shapefiles can be appended into the first layer that is loaded from the folder.
 
