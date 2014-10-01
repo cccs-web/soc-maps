@@ -22,18 +22,18 @@ The bash data loading scripts create a PostgreSQL geodatabase, call a script to 
 
 Running the bash script will create a PostgreSQL geodatabase, call a script to clean the database, and will append all the shape files into their respective tables. 
 
-## Data schema
-
-The project utilizes different schema to separate public data from private data.
-
-All shapefiles in the public folders are loaded into the public schema.The `public.txt` file lists all files that are used as initial tables in the database, to which other layers are appended.
-
-The `podes.txt` file contains a list of all shapefiles which will be appended to the first layer that is loaded from the folder.
-
 run the bash script by executing the following:
   ./public_loader.sh
 
 In the btsync folder there is a database dump that has all the data loaded in and it can be restored as an alternative to running the script.
+
+
+## Data schema
+
+The project utilizes different schema to differentiate conceptual groups of data (e.h. public vs. private data, group1 vs group1). *soc-web* utilizes a public schema, which references shapefiles in our public folders. The corresponding `public.txt`lists all such public files that are used as initial tables in the database, to which other layers are appended.
+
+The `podes.txt` file gives an example of how addotional shapefiles can be appended into the first layer that is loaded from the folder.
+
 
 Database schema description
 -------------------------------
