@@ -18,7 +18,7 @@ System Requirements
 
 ## Data loading
 
-The bash data loading scripts create a PostgreSQL geodatabase, call a script to clean the database, and will append all the shape files into their respective tables. The bash scripts assume that data is loaded from a shared btsync folder, hard-coded with following path `/home/sync/cccs-maps/shapefiles/`. The directory structure for any collaborative project should remain the same across all servers so that the script will run smoothly. Bash uplaoding scripts are specific to particular project schema, but can be used as an extendable pattern to facilitate data loading when starting new projects. Adjust the scripts as necessary before running the loader for a new project.
+The bash data loading scripts create a PostgreSQL geodatabase, call a script to clean the database, and will append all the shape files into their respective tables. The bash scripts assume that data is loaded from a shared btsync folder, hard-coded with following path `/home/sync/cccs-maps/shapefiles/`. The directory structure for any collaborative project should remain the same across all servers so that the script will run smoothly. Bash uploading scripts are specific to particular project schema, but can be used as an extendable pattern to facilitate data loading when starting new projects. Adjust the scripts as necessary before running the loader for a new project.
 
 Running the bash script will create a PostgreSQL geodatabase, call a script to clean the database, and will append all the shape files into their respective tables. 
 
@@ -26,16 +26,12 @@ Running the bash script will create a PostgreSQL geodatabase, call a script to c
 
 The project utilizes different schema to separate public data from private data.
 
-The `proprietary.txt` file lists all the shapefiles that are available in the proprietary folder. 
-
-The file geodatabase is loaded into its own schema and the `inpex.txt` file contains a list of all the table names after the file geodatabase has been loaded into the database. This text file is used for the initial cleaning up of the layers in the database by dropping columns which are of no use to the mapping app. All shapefiles in the public folders are loaded into the public schema.
-
-The `public.txt` file lists all files that are used as initial tables in the database, to which other layers are appended.
+All shapefiles in the public folders are loaded into the public schema.The `public.txt` file lists all files that are used as initial tables in the database, to which other layers are appended.
 
 The `podes.txt` file contains a list of all shapefiles which will be appended to the first layer that is loaded from the folder.
 
 run the bash script by executing the following:
-  ./loader.sh
+  ./public_loader.sh
 
 In the btsync folder there is a database dump that has all the data loaded in and it can be restored as an alternative to running the script.
 

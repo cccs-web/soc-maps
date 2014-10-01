@@ -1,0 +1,8 @@
+/home/sync/cccs-maps/shapefiles/MTB_public/MTB_public_shapefiles/infra-airports_point-L3_IDN_MTB.shp
+/home/sync/cccs-maps/shapefiles/MTB_public/MTB_public_shapefiles/infra-roads_line-L3_IDN_MTB.shp
+/home/sync/cccs-maps/shapefiles/MTB_public/MTB_public_shapefiles/infra-seports_point-L3_IDN_MTB.shp
+/home/sync/cccs-maps/shapefiles/MTB_public/MTB_public_shapefiles/trans-sea-lane_line-L3_IDN_MTB.shp
+/home/sync/cccs-maps/shapefiles/MBD_public/MBD_public_shapefiles/admin_area-L3_IDN_MBD.shp
+/home/sync/cccs-maps/shapefiles/MBD_public/MBD_public_shapefiles/admin_area-L4_IDN_MBD.shp
+/home/sync/cccs-maps/shapefiles/MBD_public/MBD_public_shapefiles/admin_area-L5_IDN_MBD.shp
+/home/sync/cccs-maps/shapefiles/MTB_public/MTB_public_shapefiles/admin_point-L5_IDN_MTB_population.shp
