@@ -8,11 +8,51 @@ if [ -n "$1" ]; then
     DATA_PATH=$1
 fi
 
+echo "Checking for docker installation"
+echo "---------------------------------"
+
+if dpkg -l | grep "docker.io" > /dev/null
+then
+    echo "You have the ubuntu docker package, please install the upstream"
+    echo "official docker packages rather."
+    echo "After removing docker.io package from ubuntu use this script"
+    echo "to install docker:"
+    echo "curl -sSL https://get.docker.io/ubuntu/ | sudo sh"
+    exit
+fi
+if dpkg -l | grep "lxc-docker" > /dev/null
+then
+    echo "Upstream docker installation found, great!"
+else
+    echo "You need to have docker installed before you run this script."
+    echo "To install docker do:"
+    echo "curl -sSL https://get.docker.io/ubuntu/ | sudo sh"
+    exit
+fi
+
+echo "Checking for gdal installation"
+echo "------------------------------"
+
+if dpkg -l | grep "gdal-bin" > /dev/null
+then
+    echo "GDAL found, great!"
+else
+    echo "You need to have gdal installed before you run this script."
+    echo "To install gdal do:"
+    echo "sudo apt-get install gdal-bin"
+    exit
+fi
+
+
+
 DB=gis
 PORT=6001
 CONTAINER_NAME=cccs-postgis-public
 USER=docker
 PASSWORD=docker
+
+echo "Starting docker postgis container for public data"
+echo "-------------------------------------------------"
 
 docker kill ${CONTAINER_NAME}
 docker rm ${CONTAINER_NAME}
@@ -69,7 +109,8 @@ function load_mdb {
 
 #Firstly load all the files listed in the text file because they contain
 # records with more columns than the other corresponding shapefiles
-
+echo "Loading shapefiles"
+echo "------------------"
 
 for SHAPE_FILE in `cat public.txt`
 do
@@ -78,11 +119,12 @@ do
 done
 
 
-#running the sql file to clean the database
+echo "Running the sql file to clean the database"
+echo "-------------------------------------------"
 ${PSQL} -f public.sql
 
-
-
+echo "Appending data to tables"
+echo "------------------------"
 
 SHAPE_FILE=${DATA_PATH}/MBD_public/MBD_public_shapefiles/admin_point-L5_IDN_MBD_population.shp
 TABLE=admin_point_l5
