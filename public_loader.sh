@@ -13,16 +13,11 @@ psql -c 'CREATE EXTENSION postgis;' $DB
 
 for file in `cat public.txt`;do shp2pgsql -s 4326 -c -D -I -W LATIN1  $file  | psql -p 5432  -d $DB;done
 
-# loading data from the Podes into one table.
 
-shp2pgsql -s 4326 -c -D  -I -W LATIN1 $Path/PODES/digital/53_ntt/5303.shp public.5303 | psql  -d $DB
-	
 #running thesql file to clean the database
 
 psql -d $DB -f public.sql
 
-#append all the remaining shapefiles from the different subfolders in podes
-for file in `cat podes.txt`;do shp2pgsql -s 4326 -a -D  -W LATIN1 $file public.podes | psql  -d $DB;done
 
 #inserting data from  other shapefiles to append data to the correct layer -to-be done for all nine layers
 #Load append the first layers from  the MDB_public folder
