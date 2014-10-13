@@ -26,9 +26,8 @@ alter table infra_airports drop column layer, drop column gm_type,drop column km
 
 alter table infra_seaports drop column layer, drop column gm_type,drop column kml_folder;
 
---loading podes into one layer. they all have the same fields
 
-alter table public."5303" rename to podes;
+
 
 
 
