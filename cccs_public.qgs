@@ -128,7 +128,7 @@
     <projectlayers layercount="9">
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135510948</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."admin_area_l3" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."admin_area_l3" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -368,7 +368,7 @@
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135526377</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."admin_area_l4" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."admin_area_l4" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -614,7 +614,7 @@
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135540275</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."admin_area_l5" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."admin_area_l5" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -887,7 +887,7 @@
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135552265</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=POINT table="public"."admin_point_l5" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=POINT table="public"."admin_point_l5" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -1214,7 +1214,7 @@
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135611160</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=POINT table="public"."infra_airports" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=POINT table="public"."infra_airports" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -1450,7 +1450,7 @@
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="1" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135626538</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="public"."infra_roads" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="public"."infra_roads" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -1816,7 +1816,7 @@
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135635256</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=POINT table="public"."infra_seaports" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=POINT table="public"."infra_seaports" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -2053,7 +2053,7 @@
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135645772</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."podes" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="public"."podes" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -2311,7 +2311,7 @@
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135655933</id>
-            <datasource>dbname='cccs' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="public"."trans_sea_lane" (geom) sql=</datasource>
+            <datasource>dbname='gis' host=cccs-postgis-public port=5432 sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="public"."trans_sea_lane" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
