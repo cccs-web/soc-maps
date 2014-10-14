@@ -1,12 +1,39 @@
 #!/bin/bash
 
-# Specify the base path to the shapefiles dir as parameter or it will default
-# to the path below
+# Configurable options (though we recommend not changing these)
+
+POSTGIS_PORT=6001
+POSTGIS_CONTAINER_NAME=cccs-postgis-public
+QGIS_SERVER_CONTAINER_NAME=cccs-qgis-server-public
+QGIS_SERVER_PORT=6003
+
+# -------------------------------------------------------
+# You should not need to change anything below this point
+# -------------------------------------------------------
+
+# Specify the base path to the shapefiles dir as parameter when calling this
+# script or it will default to the path below
 
 DATA_PATH=/home/sync/cccs-maps/shapefiles
-if [ -n "$1" ]; then
+
+if [ -n "$1" ]
+then
     DATA_PATH=$1
 fi
+
+
+DB=gis
+USER=docker
+PASSWORD=docker
+PSQL="psql -p ${POSTGIS_PORT} -h localhost -U docker ${DB}"
+
+# Helpers to run shp2pgsql from in docker so we dont need to
+# have it installed on the host
+# We dont' use -t and we added -a=STDOUT so that we get only the stdout
+# that we need to pip it into the next process
+SHP2PGSQL="docker run --rm -i -a=STDOUT -v ${DATA_PATH}:/shapefiles/ kartoza/postgis /usr/bin/shp2pgsql"
+# Where the shapefiles will appear to be in the docker container
+VOLUME=/shapefiles
 
 echo "Checking for docker installation"
 echo "---------------------------------"
@@ -43,42 +70,26 @@ else
 fi
 
 
-
-
-DB=gis
-PORT=6001
-CONTAINER_NAME=cccs-postgis-public
-USER=docker
-PASSWORD=docker
-
 echo "Starting docker postgis container for public data"
 echo "-------------------------------------------------"
 
-docker kill ${CONTAINER_NAME}
-docker rm ${CONTAINER_NAME}
+docker kill ${POSTGIS_CONTAINER_NAME}
+docker rm ${POSTGIS_CONTAINER_NAME}
 docker run \
-    --name="${CONTAINER_NAME}" \
-    --hostname="${CONTAINER_NAME}" \
-    -p ${PORT}:5432 \
+    --restart="always" \
+    --name="${POSTGIS_CONTAINER_NAME}" \
+    --hostname="${POSTGIS_CONTAINER_NAME}" \
+    -p ${POSTGIS_PORT}:5432 \
     -d -t \
     kartoza/postgis
 
  #-e USERNAME=${USER} \
  #-e PASS=${PASSWORD}\
-echo "localhost:${PORT}:*:${USER}:${PASSWORD}" >> ~/.pgpass
+echo "localhost:${POSTGIS_PORT}:*:${USER}:${PASSWORD}" >> ~/.pgpass
 
 # Wait while the docker container spins up
 sleep 20
 
-PSQL="psql -p ${PORT} -h localhost -U docker ${DB}"
-
-# Helpers to run shp2pgsql from in docker so we dont need to
-# have it installed on the host
-# We dont' use -t and we added -a=STDOUT so that we get only the stdout
-# that we need to pip it into the next process
-SHP2PGSQL="docker run --rm -i -a=STDOUT -v ${DATA_PATH}:/shapefiles/ kartoza/postgis /usr/bin/shp2pgsql"
-# Where the shapefiles will appear to be in the docker container
-VOLUME=/shapefiles
 
 function load_mdb {
     # Helper function to load a shapefile using OGR2OGR
@@ -86,7 +97,7 @@ function load_mdb {
     TABLE=$2
     SQL="$3"
 
-    CONN="dbname='${DB}' host='localhost' port='${PORT}' user='${USER}' password='${PASSWORD}'"
+    CONN="dbname='${DB}' host='localhost' port='${POSTGIS_PORT}' user='${USER}' password='${PASSWORD}'"
     ogr2ogr \
         -progress \
         -append \
@@ -169,7 +180,23 @@ ${PSQL} -c "UPDATE admin_area_l4 SET kabkot = 'Maluku Tenggara Barat' WHERE  kab
 
 
 
+echo "Running QGIS server"
+echo "-------------------"
+WEB_DIR=`pwd`/web
+chmod -R a+rX ${WEB_DIR}
+docker kill ${QGIS_SERVER_CONTAINER_NAME}
+docker rm ${QGIS_SERVER_CONTAINER_NAME}
+docker run \
+    --restart="always" \
+    --name="${QGIS_SERVER_CONTAINER_NAME}" \
+    --hostname="${QGIS_SERVER_CONTAINER_NAME}" \
+    -d -t \
+    -v ${WEB_DIR}:/web \
+    -p ${QGIS_SERVER_PORT}:80 \
+    kartoza/qgis-server
 
+echo "You can now consume WMS services at this url"
+echo "http://locahost:${QGIS_SERVER_PORT}/cgi-bin/qgis_mapserv.fcgi?map=/web/cccs_public.qgs"
 
 
 
