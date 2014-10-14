@@ -31,13 +31,13 @@
 <script src="../js/leaflet.wmslegend.js"></script>
 <script>
     var map = L.map('map', {
-        center: [-8.21567, -34.02205],
-        zoom: 15,
+        center: [-8.18145, 127.92535],
+        zoom: 8,
         minZoom: 8,
         maxZoom: 18,
         maxBounds: [
-            [-10, 129],[-7, 134]
-        ]
+            [-11, 108],[-5, 145]
+            ]
     });
     var qgis = L.tileLayer.wms("http://localhost:6003/cgi-bin/qgis_mapserv.fcgi?map=/web/cccs_public.qgs", {
         layers: 'cccs_public',
