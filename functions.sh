@@ -54,7 +54,7 @@ function restart_qgis_server {
         kartoza/qgis-server
 
     echo "You can now consume WMS services at this url"
-    echo "http://locahost:${QGIS_SERVER_PORT}/cgi-bin/qgis_mapserv.fcgi?map=/web/cccs_public.qgs"
+    echo "http://localhost:${QGIS_SERVER_PORT}/cgi-bin/qgis_mapserv.fcgi?map=/web/cccs_public.qgs"
 }
 
 function install_dependencies {

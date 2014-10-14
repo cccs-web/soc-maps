@@ -32,10 +32,10 @@
     <mapcanvas>
         <units>degrees</units>
         <extent>
-            <xmin>120.50826838959918064</xmin>
-            <ymin>-11.34190040783085429</ymin>
-            <xmax>132.78659497183380722</xmax>
-            <ymax>4.90008259126501322</ymax>
+            <xmin>126.41135634642729713</xmin>
+            <ymin>-9.9569251133343144</ymin>
+            <xmax>132.84047461690275327</xmax>
+            <ymax>-5.89642936356034131</ymax>
         </extent>
         <projections>1</projections>
         <destinationsrs>
@@ -1204,7 +1204,7 @@
             <excludeAttributesWFS/>
             <attributeactions/>
         </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+        <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135611160</id>
             <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=POINT table="infra_airports" (geom) sql=</datasource>
             <title></title>
@@ -1245,7 +1245,7 @@
                             <prop k="outline_width_map_unit_scale" v="0,0"/>
                             <prop k="outline_width_unit" v="MM"/>
                             <prop k="scale_method" v="area"/>
-                            <prop k="size" v="3"/>
+                            <prop k="size" v="7"/>
                             <prop k="size_map_unit_scale" v="0,0"/>
                             <prop k="size_unit" v="MM"/>
                             <prop k="vertical_anchor_point" v="1"/>
@@ -1285,7 +1285,7 @@
                 <property key="labeling/fieldName" value="name"/>
                 <property key="labeling/fontBold" value="true"/>
                 <property key="labeling/fontCapitals" value="0"/>
-                <property key="labeling/fontFamily" value="Ubuntu"/>
+                <property key="labeling/fontFamily" value="Sans Serif"/>
                 <property key="labeling/fontItalic" value="false"/>
                 <property key="labeling/fontLetterSpacing" value="0"/>
                 <property key="labeling/fontLimitPixelSize" value="false"/>
@@ -1314,7 +1314,7 @@
                 <property key="labeling/minFeatureSize" value="0"/>
                 <property key="labeling/multilineAlign" value="0"/>
                 <property key="labeling/multilineHeight" value="1"/>
-                <property key="labeling/namedStyle" value="Medium"/>
+                <property key="labeling/namedStyle" value="Italic"/>
                 <property key="labeling/obstacle" value="true"/>
                 <property key="labeling/placeDirectionSymbol" value="0"/>
                 <property key="labeling/placement" value="1"/>
