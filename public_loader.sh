@@ -15,9 +15,8 @@ if dpkg -l | grep "docker.io" > /dev/null
 then
     echo "You have the ubuntu docker package, please install the upstream"
     echo "official docker packages rather."
-    echo "After removing docker.io package from ubuntu use this script"
-    echo "to install docker:"
-    echo "curl -sSL https://get.docker.io/ubuntu/ | sudo sh"
+    echo "After removing docker.io package from ubuntu simply rerun this "
+    echo "script and it will be installed:"
     exit
 fi
 if dpkg -l | grep "lxc-docker" > /dev/null
@@ -25,9 +24,9 @@ then
     echo "Upstream docker installation found, great!"
 else
     echo "You need to have docker installed before you run this script."
-    echo "To install docker do:"
-    echo "curl -sSL https://get.docker.io/ubuntu/ | sudo sh"
-    exit
+    echo "We will install docker from the upstream repo for you, please"
+    echo "enter your sudo password when prompted."
+    curl -sSL https://get.docker.io/ubuntu/ | sudo sh
 fi
 
 echo "Checking for gdal installation"
@@ -38,10 +37,11 @@ then
     echo "GDAL found, great!"
 else
     echo "You need to have gdal installed before you run this script."
-    echo "To install gdal do:"
-    echo "sudo apt-get install gdal-bin"
-    exit
+    echo "We will install gdal-bin from the ubuntu repos for you, please"
+    echo "enter your sudo password when prompted."
+    sudo apt-get install gdal-bin
 fi
+
 
 
 
