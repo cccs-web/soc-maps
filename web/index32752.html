@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AOI</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" /> -->
+    <link rel="stylesheet" href="../css/leaflet.css"/>
+    <link rel="stylesheet" href="../css/leaflet.zoomdisplay.css"/>
+    <link rel="stylesheet" href="../css/leaflet.wmslegend.css"/>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+            background: white;
+        }
+    </style>
+    <link rel="shortcut icon"
+          href="http://kartoza.com/wp-content/uploads/2014/08/kartoza-favicon.ico"/>
+</head>
+<body>
+<div id="map"></div>
+<!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script> -->
+<script src="../js/leaflet.js"></script>
+<script src="../js/leaflet.zoomdisplay.js"></script>
+<script src="../js/leaflet.wmslegend.js"></script>
+<script src="../js/proj4compressed.js"></script>
+<script src="../js/proj4leaflet.js"></script>
+<script>
+
+    var crs = new L.Proj.CRS(
+            'EPSG:32752',
+            '+proj=utm +zone=52 +south +datum=WGS84 +units=m +no_defs'
+    );
+    var map = L.map('map', {
+        center: [758630.141,9154372.203],
+        zoom: 15,
+        minZoom: 14,
+        maxZoom: 18,
+        maxBounds: [
+            [225734, 8774692] ,
+            [1255238, 9343876]
+        ],
+    });
+    var qgis = L.tileLayer.wms("http://localhost:6003/cgi-bin/qgis_mapserv.fcgi?map=/web/cccs_public.qgs", {
+        layers: 'cccs_public',
+        format: 'image/png',
+        transparent: true,
+        attribution: '(c)<a href="cccs">CCCS</a>'
+    }).addTo(map);
+    uri = "http://localhost:6003/cgi-bin/qgis_mapserv.fcgi?map=/web/cccs_public.qgs&&SERVICE=WMS&VERSION=1.3.0&SLD_VERSION=1.1.0&REQUEST=GetLegendGraphic&FORMAT=image/jpeg&LAYER=cccs_public&STYLE=";
+    L.wmsLegend(uri);
+</script>
+</body>
+</html>
+

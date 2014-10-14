@@ -1,44 +1,135 @@
-## soc-maps
-
-mapping application to support social development planning
+# SOC-MAPS
 
 
-### System Requirements
+Mapping application to support social development planning.
 
-* Ubuntu 14.04
-* [GDAL](http://www.gdal.org/) 1.10 and above
-   * `$ sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update`
-   * `$ sudo apt-get install libgdal-dev gdal-bin`
-* PostgreSQL (we used 9.3) 
-* PostGIS (we used 2.1)
-* QGIS server
+**[soc-maps](https://github.com/cccs-web/soc-maps/)**
 
-### Instructions for loading data into the database
+**Note:** The data, procedures and services provided by this repo are **public**
+and should only include items allowed for general redistribution.
 
-The bash data loading scripts create a PostgreSQL geodatabase, call a script to clean the database, and will append all the shape files into their respective tables. The bash scripts assume that data is loaded from a shared btsync folder, hard-coded with following path `/home/sync/cccs-maps/shapefiles/`. The directory structure for any collaborative project should remain the same across all servers so that the script will run smoothly. Bash uploading scripts are specific to particular project schema, but can be used as an extendable pattern to facilitate data loading when starting new projects. Adjust the scripts as necessary before running the loader for a new project.
+# Quick Start
 
-Running the bash script will create a PostgreSQL geodatabase, call a script to clean the database, and will append all the shape files into their respective tables. 
+## Requirements
 
-run the bash script by executing the following:
-  ./public_loader.sh
+You need to have docker installed since all the services provided here
+run inside of docker containers. Please note that you should use the docker 
+binaries from the upstream docker project. The easiest way to do this is to run:
 
-In the btsync folder there is a database dump that has all the data loaded in and it can be restored as an alternative to running the script.
+```
+curl -sSL https://get.docker.io/ubuntu/ | sudo sh
+```
+
+Once you have docker installed, make sure you are in the 'docker' group e.g.:
+
+```
+sudo usermod -a -G docker <username>
+```
+
+**Note:** You will need to log out and in again before your group changes
+are applied to your logged in session.
+
+## Installation
+
+Once docker is installed, run the loader bash script by executing the following:
+
+```
+./public_loader.sh
+```
+
+**Note:** By default the above script will look for the gis dataset at this
+location: `/home/sync/cccs-maps/shapefiles`. If your shapefiles are located
+in a different place then append the path to the shapefiles directory as a 
+parameter to the public_loader script e.g.:
+
+```
+./public_loader.sh <path>
+```
+
+After running the above script you can open the web map project by visiting:
+
+http://localhost:6003/index4326.html
 
 
-#### A brief aside on data schema
+# Additional notes
 
-The project utilizes different schema to differentiate conceptual groups of data (e.h. public vs. private data, group1 vs group1). **[soc-maps](https://github.com/cccs-web/soc-maps/)** utilizes a public schema, which references shapefiles in our public folders. The corresponding `public.txt` lists all such public files that are used as initial tables in the database, to which other layers are appended.
+## Data schema
+
+This repository and the above script deal only with loading public data.
+
+The shapefiles listed in `public.txt` are loaded into the database
+using the following method: for the first file encountered, a new table is
+created, and thereafter each subsequent file is appended into table created
+for the first layer.
+
+## Postgis Server
+
+The `public_loader.sh` script will start a virtualised Postgis Server (running
+in a docker container) on completion. Should you need to, you can connect to
+that PostgreSQL database using the following settings:
+
+**Host:** localhost
+**Port:** 6001
+**User:** docker
+**Pass:** docker
+**Database:** gis
+
+We recommend that you use the virtualised QGIS Desktop application for 
+any project editing, layer loading etc. (see below for more details). The
+above connection details are primarily intended to provide an easy access point
+for doing backups and bulk data loads.
 
 
-In the btsync folder there is a CCCS folder that contains a graphical description of the schema representation in the database. Open the ccss folder and open index.html in a web browser to view the different schemas that exist in the database. For each schema it lists the tables and the columns that are in the table as well as the data type.
+## QGIS Server
+
+The `public_loader.sh` script will start a virtualised QGIS Server (running
+in a docker container) on completion. Should you need to, you can kill and
+redeploy the QGIS server by running:
+
+```
+./restart_qgis_server.sh
+```
+
+QGIS will provide a WMS (Web Mapping Service) for any QGIS projects saved into
+the root of the web folder. Additionally, any files lodged into that folder
+will be available via the web server. For example ``web/index4326.html`` will
+be available as:
+
+```
+http://localhost:6003/index4326.html
+```
+
+**Note:** The QGIS Server instance is deployed with port 80 of the docker 
+container mapped to port 6003 of the host. If you want to, you can open this
+port on your firewall, but we recommend rather using a reverse proxy (e.g. nginx)
+to proxy requests into the virtualised QGIS Server container.
+
+## QGIS Desktop
+
+Editing the project in QGIS requires using a copy of QGIS desktop run from
+a docker container. Presently this will only work on Linux. To run QGIS in
+this way do:
+
+```
+./run_qgis_in_docker.sh
+```
+
+The project file published to QGIS server will be in the /web directory
+in the root of the virtualised file system (as seen from within file dialogs
+of the dockerised QGIS application).
+
+Note that in the context of the virtualised QGIS Desktop application, you
+should use the following connection settings in order to connect to the 
+PostGIS docker container:
+
+**Host:** cccs-postgis-public
+**Port:** 5432
+**User:** docker
+**Pass:** docker
+**Database:** gis
 
 
-## QGIS
+# Contact
 
-Once all the data have been loaded into the database, open the QGIS project file  and replace the following connection string with the correct connection info depending on the location of the database:
-
-`host=192.168.10.200 port=5432`
-
-Then proceed to open QGIS and open the QGIS project file to see how the layers have been styled.
-
-We will serve the project with QGIS server to publish WMS layers that can be used in web mapping applications.
+Admire Nyakudya & Tim Sutton
+October 2014
