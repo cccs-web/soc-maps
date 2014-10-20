@@ -66,8 +66,6 @@ ALTER INDEX "infra-seports_point-l3_idn_mtb_geom_gist"   RENAME TO infra_seaport
 
 ALTER INDEX "infra-seports_point-l3_idn_mtb_pkey"        RENAME TO infra_seaports_pkey;
 
-ALTER INDEX "infra_seports_wkb_geometry_geom_idx"        RENAME TO infra_seports_geom_gist;
-
 ALTER INDEX "trans-sea-lane_line-l3_idn_mtb_geom_gist"   RENAME TO trans_sea_lane_geom_gist;
 
 ALTER INDEX "trans-sea-lane_line-l3_idn_mtb_pkey"        RENAME TO trans_sea_lane_pkey;
