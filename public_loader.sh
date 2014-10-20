@@ -31,9 +31,9 @@ PSQL="psql -p ${POSTGIS_PORT} -h localhost -U docker ${DB}"
 # have it installed on the host
 # We dont' use -t and we added -a=STDOUT so that we get only the stdout
 # that we need to pip it into the next process
-SHP2PGSQL="docker run --rm -i -a=STDOUT -v ${DATA_PATH}:/shapefiles/ kartoza/postgis /usr/bin/shp2pgsql"
+SHP2PGSQL="docker run --rm -i -a=STDOUT -v ${DATA_PATH}:/bps_indonesia/ kartoza/postgis /usr/bin/shp2pgsql"
 # Where the shapefiles will appear to be in the docker container
-VOLUME=/shapefiles
+VOLUME=/bps_indonesia
 
 
 
@@ -131,6 +131,7 @@ ${PSQL} -c "UPDATE admin_area_l4 SET kabkot = 'Maluku Tenggara Barat' WHERE  kab
 
 
 restart_qgis_server
+
 
 
 
