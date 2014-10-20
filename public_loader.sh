@@ -14,7 +14,7 @@ QGIS_SERVER_PORT=6003
 # Specify the base path to the shapefiles dir as parameter when calling this
 # script or it will default to the path below
 
-DATA_PATH=/home/sync/cccs-maps/shapefiles
+DATA_PATH=/home/sync/cccs-maps/public/bps_indonesia
 
 if [ -n "$1" ]
 then
