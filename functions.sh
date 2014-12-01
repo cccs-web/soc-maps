@@ -32,7 +32,7 @@ function restart_postgis_server {
     # Todo:  prevent multiple entries in pgpass
     echo "localhost:${POSTGIS_PORT}:*:${USER}:${PASSWORD}" >> ~/.pgpass
 
-    sleep 20
+    sleep 90
 
 }
 function restart_qgis_server {

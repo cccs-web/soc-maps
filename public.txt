@@ -1,8 +1,8 @@
-/MTB_public/MTB_public_shapefiles/infra-airports_point-L3_IDN_MTB.shp
-/MTB_public/MTB_public_shapefiles/infra-roads_line-L3_IDN_MTB.shp
-/MTB_public/MTB_public_shapefiles/infra-seports_point-L3_IDN_MTB.shp
-/MTB_public/MTB_public_shapefiles/trans-sea-lane_line-L3_IDN_MTB.shp
-/MBD_public/MBD_public_shapefiles/admin_area-L3_IDN_MBD.shp
-/MBD_public/MBD_public_shapefiles/admin_area-L4_IDN_MBD.shp
-/MBD_public/MBD_public_shapefiles/admin_area-L5_IDN_MBD.shp
-/MTB_public/MTB_public_shapefiles/admin_point-L5_IDN_MTB_population.shp
+/MTB_public/shapefiles/infra-airports_point-L3_IDN_MTB.shp
+/MTB_public/shapefiles/infra-roads_line-L3_IDN_MTB.shp
+/MTB_public/shapefiles/infra-seports_point-L3_IDN_MTB.shp
+/MTB_public/shapefiles/trans-sea-lane_line-L3_IDN_MTB.shp
+/MBD_public/shapefiles/admin_area-L3_IDN_MBD.shp
+/MBD_public/shapefiles/admin_area-L4_IDN_MBD.shp
+/MBD_public/shapefiles/admin_area-L5_IDN_MBD.shp
+/MTB_public/shapefiles/admin_point-L5_IDN_MTB_population.shp

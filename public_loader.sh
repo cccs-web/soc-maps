@@ -14,7 +14,7 @@ QGIS_SERVER_PORT=6003
 # Specify the base path to the shapefiles dir as parameter when calling this
 # script or it will default to the path below
 
-DATA_PATH=/home/sync/cccs-maps/shapefiles
+DATA_PATH=/home/sync/cccs-maps/public/bps_indonesia
 
 if [ -n "$1" ]
 then
@@ -31,9 +31,9 @@ PSQL="psql -p ${POSTGIS_PORT} -h localhost -U docker ${DB}"
 # have it installed on the host
 # We dont' use -t and we added -a=STDOUT so that we get only the stdout
 # that we need to pip it into the next process
-SHP2PGSQL="docker run --rm -i -a=STDOUT -v ${DATA_PATH}:/shapefiles/ kartoza/postgis /usr/bin/shp2pgsql"
+SHP2PGSQL="docker run --rm -i -a=STDOUT -v ${DATA_PATH}:/bps_indonesia/ kartoza/postgis /usr/bin/shp2pgsql"
 # Where the shapefiles will appear to be in the docker container
-VOLUME=/shapefiles
+VOLUME=/bps_indonesia
 
 
 
@@ -89,38 +89,38 @@ ${PSQL} -f public.sql
 echo "Appending data to tables"
 echo "------------------------"
 
-SHAPE_FILE=${DATA_PATH}/MBD_public/MBD_public_shapefiles/admin_point-L5_IDN_MBD_population.shp
+SHAPE_FILE=${DATA_PATH}/MBD_public/shapefiles/admin_point-L5_IDN_MBD_population.shp
 TABLE=admin_point_l5
 SQL="SELECT name as desa, population as desa_popul,range_pop as range_pop, class as class, kode2010 as kode2010 from 'admin_point-L5_IDN_MBD_population'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
 
-SHAPE_FILE=${DATA_PATH}/MBD_public/MBD_public_shapefiles/infra-airports_point-L3_IDN_MBD.shp
+SHAPE_FILE=${DATA_PATH}/MBD_public/shapefiles/infra-airports_point-L3_IDN_MBD.shp
 TABLE=infra_airports
 SQL="SELECT name from 'infra-airports_point-L3_IDN_MBD'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
 
-SHAPE_FILE=${DATA_PATH}/MBD_public/MBD_public_shapefiles/infra-roads_line-L3_IDN_MBD.shp
+SHAPE_FILE=${DATA_PATH}/MBD_public/shapefiles/infra-roads_line-L3_IDN_MBD.shp
 TABLE=infra_roads
 SQL="SELECT id from 'infra-roads_line-L3_IDN_MBD'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
 
-SHAPE_FILE=${DATA_PATH}/MBD_public/MBD_public_shapefiles/infra-seports_point-L3_IDN_MBD.shp
+SHAPE_FILE=${DATA_PATH}/MBD_public/shapefiles/infra-seports_point-L3_IDN_MBD.shp
 TABLE=infra_seports
 SQL="SELECT name from 'infra-seports_point-L3_IDN_MBD'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
 
 #Append layers from the MTB_public folder whilst also mapping fields which we saw as the same
-SHAPE_FILE=${DATA_PATH}/MTB_public/MTB_public_shapefiles/admin_area-L3_IDN_MTB.shp
+SHAPE_FILE=${DATA_PATH}/MTB_public/shapefiles/admin_area-L3_IDN_MTB.shp
 TABLE=admin_area_l3
 SQL="SELECT provinsi, kabkotno as kab, kabkot from 'admin_area-L3_IDN_MTB'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
 
-SHAPE_FILE=${DATA_PATH}/MTB_public/MTB_public_shapefiles/admin_area-L4_IDN_MTB.shp
+SHAPE_FILE=${DATA_PATH}/MTB_public/shapefiles/admin_area-L4_IDN_MTB.shp
 TABLE=admin_area_l4
 SQL="SELECT kecamatan, kecno as kec from 'admin_area-L4_IDN_MTB'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
 
-SHAPE_FILE=${DATA_PATH}/MTB_public/MTB_public_shapefiles/admin_area-L5_IDN_MTB.shp
+SHAPE_FILE=${DATA_PATH}/MTB_public/shapefiles/admin_area-L5_IDN_MTB.shp
 TABLE=admin_area_l5
 SQL="SELECT kode2010,provinsi,provno as prop,kabkot,kabkotno as kab,kecamatan,kecno as kec,desa as nama,desano as desa,sumber,desa_popul from 'admin_area-L5_IDN_MTB'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
@@ -131,6 +131,7 @@ ${PSQL} -c "UPDATE admin_area_l4 SET kabkot = 'Maluku Tenggara Barat' WHERE  kab
 
 
 restart_qgis_server
+
 
 
 
