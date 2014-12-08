@@ -38,7 +38,7 @@ Once docker is installed, run the loader bash script by executing the following:
 ```
 
 **Note:** By default the above script will look for the gis dataset at this
-location: `/home/sync/cccs-maps/shapefiles`. If your shapefiles are located
+location: `/home/sync/cccs-maps/public/`. If your shapefiles are located
 in a different place then append the path to the shapefiles directory as a 
 parameter to the public_loader script e.g.:
 
