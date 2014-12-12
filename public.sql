@@ -82,3 +82,23 @@ ALTER TABLE admin_area_l5 ADD column sumber character varying(255), ADD column k
 ALTER TABLE infra_airports DROP column layer, DROP column gm_type,DROP column kml_folder;
 
 ALTER TABLE infra_seaports DROP column layer, DROP column gm_type,DROP column kml_folder;
+
+------------------------------------------------------------------------------------------
+--Adding a column to keep track of source of shapefiles
+------------------------------------------------------------------------------------------
+ALTER TABLE  admin_point_l5 add column source character varying (255);
+
+ALTER TABLE admin_area_l3 add column source character varying (255);
+
+ALTER TABLE  admin_area_l4 add column source character varying (255);
+
+ALTER TABLE  admin_area_l5 add column source character varying (255);
+
+ALTER TABLE  infra_airports add column source character varying (255) ;
+
+ALTER TABLE  infra_roads add column source character varying (255);
+
+ALTER TABLE  infra_seaports add column source character varying (255);
+
+ALTER TABLE  trans_sea_lane add column source character varying (255);
+
