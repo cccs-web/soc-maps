@@ -86,6 +86,26 @@ echo "Running the sql file to clean the database"
 echo "-------------------------------------------"
 ${PSQL} -f public.sql
 
+
+echo "Updating the source datasets"
+echo "----------------------------"
+${PSQL} -c "UPDATE  admin_point_l5 set source ='mtb';"
+
+${PSQL} -c "UPDATE admin_area_l3 set source ='mbd';"
+
+${PSQL} -c "UPDATE  admin_area_l4 set source ='mbd';"
+
+${PSQL} -c "UPDATE  admin_area_l5 set source ='mbd';"
+
+${PSQL} -c "UPDATE  infra_airports set source ='mtb';"
+
+${PSQL} -c "UPDATE  infra_roads set source ='mtb';"
+
+${PSQL} -c "UPDATE  infra_seaports set source ='mtb';"
+
+${PSQL} -c "UPDATE  trans_sea_lane set source ='mtb';"
+
+
 echo "Appending data to tables"
 echo "------------------------"
 
@@ -125,10 +145,29 @@ TABLE=admin_area_l5
 SQL="SELECT kode2010,provinsi,provno as prop,kabkot,kabkotno as kab,kecamatan,kecno as kec,desa as nama,desano as desa,sumber,desa_popul from 'admin_area-L5_IDN_MTB'"
 load_shapefile ${SHAPE_FILE} ${TABLE} "${SQL}"
 
+echo "Final update"
+echo "------------------------"
+
 
 ${PSQL} -c "UPDATE admin_point_l5 SET kabkot = 'Maluku Barat Daya' WHERE kabkot IS NULL;"
+
 ${PSQL} -c "UPDATE admin_area_l4 SET kabkot = 'Maluku Tenggara Barat' WHERE  kabkot IS NULL;"
 
+${PSQL} -c "UPDATE admin_area_l3 set source ='mtb' where source IS NULL;"
+
+${PSQL} -c "UPDATE  admin_area_l4 set source ='mtb' where source IS NULL;"
+
+${PSQL} -c "UPDATE  admin_area_l5 set source ='mtb' where source IS NULL;"
+
+${PSQL} -c "UPDATE  infra_airports set source ='mbd' where source IS NULL;"
+
+${PSQL} -c "UPDATE  infra_roads set source ='mbd' where source IS NULL;"
+
+${PSQL} -c "UPDATE  infra_seaports set source ='mbd' where source IS NULL;"
+
+${PSQL} -c "UPDATE  trans_sea_lane set source ='mbd' where source IS NULL;"
+
+${PSQL} -c "UPDATE  admin_point_l5 set source =  'mbd' where source IS NULL;"
 
 restart_qgis_server
 
