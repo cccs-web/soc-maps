@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="2.4.0-Chugiak">
+<qgis projectname="" version="2.6.1-Brighton">
     <title></title>
     <layer-tree-group expanded="1" checked="Qt::Checked" name="">
         <customproperties/>
@@ -32,10 +32,10 @@
     <mapcanvas>
         <units>degrees</units>
         <extent>
-            <xmin>126.41135634642729713</xmin>
+            <xmin>122.95333252700595494</xmin>
             <ymin>-9.9569251133343144</ymin>
-            <xmax>132.84047461690275327</xmax>
-            <ymax>-5.89642936356034131</ymax>
+            <xmax>136.29849843632405282</xmax>
+            <ymax>-5.89642936356034042</ymax>
         </extent>
         <projections>1</projections>
         <destinationsrs>
@@ -63,6 +63,7 @@
             <layer_coordinate_transform destAuthId="EPSG:4326" srcAuthId="EPSG:4326" srcDatumTransform="-1" destDatumTransform="-1" layerid="20141001135635256"/>
         </layer_coordinate_transform_info>
     </mapcanvas>
+    <visibility-presets/>
     <layer-tree-canvas>
         <custom-order enabled="0">
             <item>20141001135552265</item>
@@ -120,7 +121,7 @@
     <projectlayers layercount="8">
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135510948</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="admin_area_l3" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=127.0.0.1 port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="admin_area_l3" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -142,24 +143,45 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "gid", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kab">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="RuleRenderer">
-                <rules>
-                    <rule scalemaxdenom="10000000" symbol="0" scalemindenom="900000"/>
+                <rules key="{a02c2db1-17e7-4d65-a95c-c95fd8644dc4}">
+                    <rule scalemaxdenom="10000000" key="{17306150-6a1a-4efe-961a-1486c24826a3}" symbol="0" scalemindenom="900000"/>
                 </rules>
                 <symbols>
                     <symbol alpha="0.301961" type="fill" name="0">
                         <layer pass="0" class="SimpleFill" locked="0">
                             <prop k="border_width_map_unit_scale" v="0,0"/>
-                            <prop k="border_width_unit" v="MM"/>
                             <prop k="color" v="72,52,172,255"/>
-                            <prop k="color_border" v="72,52,172,255"/>
                             <prop k="joinstyle" v="bevel"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="72,52,172,255"/>
+                            <prop k="outline_style" v="solid"/>
+                            <prop k="outline_width" v="0.26"/>
+                            <prop k="outline_width_unit" v="MM"/>
                             <prop k="style" v="solid"/>
-                            <prop k="style_border" v="solid"/>
-                            <prop k="width_border" v="0.26"/>
                         </layer>
                     </symbol>
                 </symbols>
@@ -332,23 +354,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="prop">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="provinsi">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kab">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kabkot">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -357,10 +362,30 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kab">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135526377</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="admin_area_l4" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=localhost port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="admin_area_l4" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -382,24 +407,51 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "gid", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kab">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kec">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecamatan">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="RuleRenderer">
-                <rules>
-                    <rule scalemaxdenom="900000" symbol="0" scalemindenom="350000"/>
+                <rules key="{f464a89c-ddc4-4fa0-b87a-74c053cc30d6}">
+                    <rule scalemaxdenom="900000" key="{9595b7e8-740a-46fb-9b5b-43eb865f6b2f}" symbol="0" scalemindenom="350000"/>
                 </rules>
                 <symbols>
                     <symbol alpha="0.435294" type="fill" name="0">
                         <layer pass="0" class="SimpleFill" locked="0">
                             <prop k="border_width_map_unit_scale" v="0,0"/>
-                            <prop k="border_width_unit" v="MM"/>
                             <prop k="color" v="255,170,0,255"/>
-                            <prop k="color_border" v="0,0,255,255"/>
                             <prop k="joinstyle" v="bevel"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="0,0,255,255"/>
+                            <prop k="outline_style" v="dash dot dot"/>
+                            <prop k="outline_width" v="0.26"/>
+                            <prop k="outline_width_unit" v="MM"/>
                             <prop k="style" v="solid"/>
-                            <prop k="style_border" v="dash dot dot"/>
-                            <prop k="width_border" v="0.26"/>
                         </layer>
                     </symbol>
                 </symbols>
@@ -572,29 +624,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="prop">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="provinsi">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kab">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kabkot">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kec">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kecamatan">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -603,10 +632,36 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kab">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kec">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecamatan">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135540275</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="admin_area_l5" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=127.0.0.1 port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=MULTIPOLYGON table="admin_area_l5" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -628,24 +683,78 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "gid", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kode2010">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kab">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kec">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="desa">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="nama">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prodes">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="idsp2010">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="id_tipewil">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabdes">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="sumber">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecamatan">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="desa_popul">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="RuleRenderer">
-                <rules>
-                    <rule scalemaxdenom="350000" symbol="0" scalemindenom="1"/>
+                <rules key="{8d2e4a50-9288-4df6-b435-263f0e4f6639}">
+                    <rule scalemaxdenom="350000" key="{67a154e0-15e3-45a7-8c29-24aeeccb7fa2}" symbol="0" scalemindenom="1"/>
                 </rules>
                 <symbols>
                     <symbol alpha="0.290196" type="fill" name="0">
                         <layer pass="0" class="SimpleFill" locked="0">
                             <prop k="border_width_map_unit_scale" v="0,0"/>
-                            <prop k="border_width_unit" v="MM"/>
                             <prop k="color" v="205,164,224,255"/>
-                            <prop k="color_border" v="85,0,0,255"/>
                             <prop k="joinstyle" v="bevel"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="85,0,0,255"/>
+                            <prop k="outline_style" v="dash"/>
+                            <prop k="outline_width" v="0.36"/>
+                            <prop k="outline_width_unit" v="MM"/>
                             <prop k="style" v="solid"/>
-                            <prop k="style_border" v="dash"/>
-                            <prop k="width_border" v="0.36"/>
                         </layer>
                     </symbol>
                 </symbols>
@@ -818,56 +927,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kode2010">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="prop">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="provinsi">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kab">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kabkot">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kec">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="desa">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="nama">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="prodes">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="idsp2010">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="id_tipewil">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kabdes">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="sumber">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kecamatan">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="desa_popul">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -876,10 +935,63 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kode2010">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kab">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kec">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="desa">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="nama">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="prodes">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="idsp2010">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="id_tipewil">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabdes">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="sumber">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecamatan">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="desa_popul">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135552265</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=POINT table="admin_point_l5" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=127.0.0.1 port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=POINT table="admin_point_l5" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -901,22 +1013,73 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "gid", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kode2010">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provno">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkotno">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecamatan">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecno">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="name">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="desano">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="sumber">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="population">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="range_pop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="class">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kode20102">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="RuleRenderer">
-                <rules>
-                    <rule scalemaxdenom="500000" symbol="0" scalemindenom="100000"/>
-                    <rule scalemaxdenom="100000" symbol="1" scalemindenom="1"/>
+                <rules key="{7cddcb35-c9ef-4229-b33a-00e72fcbabc2}">
+                    <rule scalemaxdenom="500000" key="{8076ef29-ff35-4360-82d1-def6fa9b574e}" symbol="0" scalemindenom="100000"/>
+                    <rule scalemaxdenom="100000" key="{0a8bba3c-3448-4dae-8c3d-731b82db0227}" symbol="1" scalemindenom="1"/>
                 </rules>
                 <symbols>
                     <symbol alpha="1" type="marker" name="0">
                         <layer pass="0" class="SimpleMarker" locked="0">
                             <prop k="angle" v="0"/>
                             <prop k="color" v="106,61,154,255"/>
-                            <prop k="color_border" v="255,0,0,0"/>
                             <prop k="horizontal_anchor_point" v="1"/>
                             <prop k="name" v="regular_star"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="255,0,0,0"/>
                             <prop k="outline_style" v="solid"/>
                             <prop k="outline_width" v="0"/>
                             <prop k="outline_width_map_unit_scale" v="0,0"/>
@@ -930,12 +1093,12 @@
                         <layer pass="0" class="SimpleMarker" locked="1">
                             <prop k="angle" v="0"/>
                             <prop k="color" v="255,255,127,255"/>
-                            <prop k="color_border" v="0,0,0,0"/>
                             <prop k="horizontal_anchor_point" v="1"/>
                             <prop k="name" v="circle"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="0,0,0,0"/>
                             <prop k="outline_style" v="solid"/>
                             <prop k="outline_width" v="0"/>
                             <prop k="outline_width_map_unit_scale" v="0,0"/>
@@ -951,12 +1114,12 @@
                         <layer pass="0" class="SimpleMarker" locked="0">
                             <prop k="angle" v="0"/>
                             <prop k="color" v="106,61,154,255"/>
-                            <prop k="color_border" v="255,0,0,0"/>
                             <prop k="horizontal_anchor_point" v="1"/>
                             <prop k="name" v="regular_star"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="255,0,0,0"/>
                             <prop k="outline_style" v="solid"/>
                             <prop k="outline_width" v="0"/>
                             <prop k="outline_width_map_unit_scale" v="0,0"/>
@@ -970,12 +1133,12 @@
                         <layer pass="0" class="SimpleMarker" locked="1">
                             <prop k="angle" v="0"/>
                             <prop k="color" v="255,255,127,255"/>
-                            <prop k="color_border" v="0,0,0,0"/>
                             <prop k="horizontal_anchor_point" v="1"/>
                             <prop k="name" v="circle"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="0,0,0,0"/>
                             <prop k="outline_style" v="solid"/>
                             <prop k="outline_width" v="0"/>
                             <prop k="outline_width_map_unit_scale" v="0,0"/>
@@ -1157,44 +1320,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kode2010">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="provinsi">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="provno">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kabkot">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kabkotno">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kecamatan">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="kecno">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="desa">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="desano">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="sumber">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="desa_popul">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -1203,10 +1328,60 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kode2010">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provinsi">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="provno">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkot">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kabkotno">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecamatan">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kecno">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="name">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="desano">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="sumber">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="population">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="range_pop">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="class">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="kode20102">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135611160</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=POINT table="infra_airports" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=127.0.0.1 port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=POINT table="infra_airports" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -1228,18 +1403,30 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "name", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="name">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="singleSymbol">
                 <symbols>
                     <symbol alpha="1" type="marker" name="0">
                         <layer pass="0" class="SimpleMarker" locked="0">
                             <prop k="angle" v="0"/>
                             <prop k="color" v="20,175,206,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
                             <prop k="horizontal_anchor_point" v="1"/>
                             <prop k="name" v="regular_star"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="0,0,0,255"/>
                             <prop k="outline_style" v="solid"/>
                             <prop k="outline_width" v="0"/>
                             <prop k="outline_width_map_unit_scale" v="0,0"/>
@@ -1423,14 +1610,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="name">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -1439,10 +1618,21 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="name">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="1" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135626538</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="infra_roads" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=127.0.0.1 port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="infra_roads" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -1464,156 +1654,171 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "gid", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="id">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="road_class">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="RuleRenderer">
-                <rules>
-                    <rule filter=" &quot;road_class&quot;  is  NULL " symbol="0" label="Other Roads"/>
-                    <rule filter=" &quot;road_class&quot;  =  'District Road' " symbol="1" label="District Road"/>
-                    <rule filter=" &quot;road_class&quot;  =  'National Road' " symbol="2" label="National Road"/>
-                    <rule filter=" &quot;road_class&quot;  =  'Provincial Road' " symbol="3" label="Provincial Road"/>
+                <rules key="{2d0647ca-f23a-447e-8d9f-1d431b34b5ff}">
+                    <rule filter=" &quot;road_class&quot;  is  NULL " key="{aab17c86-6830-466f-9a0f-fc496613ac09}" symbol="0" label="Other Roads"/>
+                    <rule filter=" &quot;road_class&quot;  =  'District Road' " key="{5d2137e2-98ba-433a-ba00-16b69f4a5db5}" symbol="1" label="District Road"/>
+                    <rule filter=" &quot;road_class&quot;  =  'National Road' " key="{0d71710a-e78b-40b7-800a-8a9898aaaa6d}" symbol="2" label="National Road"/>
+                    <rule filter=" &quot;road_class&quot;  =  'Provincial Road' " key="{1b91760f-6641-4fcc-8de1-0ef3d024e8f5}" symbol="3" label="Provincial Road"/>
                 </rules>
                 <symbols>
                     <symbol alpha="1" type="line" name="0">
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="square"/>
-                            <prop k="color" v="0,0,0,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
+                            <prop k="line_color" v="0,0,0,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.61"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.61"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="square"/>
-                            <prop k="color" v="189,139,78,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
+                            <prop k="line_color" v="189,139,78,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.46"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.46"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                     </symbol>
                     <symbol alpha="1" type="line" name="1">
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="square"/>
-                            <prop k="color" v="0,0,0,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
+                            <prop k="line_color" v="0,0,0,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.76"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.76"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="square"/>
-                            <prop k="color" v="106,156,213,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
+                            <prop k="line_color" v="106,156,213,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.56"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.56"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                     </symbol>
                     <symbol alpha="1" type="line" name="2">
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="square"/>
-                            <prop k="color" v="0,0,0,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
+                            <prop k="line_color" v="0,0,0,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.76"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.76"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="square"/>
-                            <prop k="color" v="189,32,74,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
+                            <prop k="line_color" v="189,32,74,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.56"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.56"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                     </symbol>
                     <symbol alpha="1" type="line" name="3">
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="round"/>
-                            <prop k="color" v="0,0,0,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="round"/>
+                            <prop k="line_color" v="0,0,0,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.51"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.51"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="round"/>
-                            <prop k="color" v="205,106,90,255"/>
                             <prop k="customdash" v="0"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="round"/>
+                            <prop k="line_color" v="205,106,90,255"/>
+                            <prop k="line_style" v="solid"/>
+                            <prop k="line_width" v="0.41"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.41"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                     </symbol>
                 </symbols>
@@ -1786,17 +1991,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="id">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="road_class">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -1805,10 +1999,24 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="id">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="road_class">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="0" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135635256</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=POINT table="infra_seaports" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=127.0.0.1 port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=POINT table="infra_seaports" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -1830,21 +2038,33 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "name", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="name">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="RuleRenderer">
-                <rules>
-                    <rule scalemaxdenom="1000000" symbol="0" scalemindenom="1"/>
+                <rules key="{0a75efe9-2c2a-44ab-81e1-8ca7b1c5f1a8}">
+                    <rule scalemaxdenom="1000000" key="{f43b5949-a470-4998-8720-a06c4f0c653e}" symbol="0" scalemindenom="1"/>
                 </rules>
                 <symbols>
                     <symbol alpha="1" type="marker" name="0">
                         <layer pass="0" class="SimpleMarker" locked="0">
                             <prop k="angle" v="0"/>
                             <prop k="color" v="178,223,138,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
                             <prop k="horizontal_anchor_point" v="1"/>
                             <prop k="name" v="diamond"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
+                            <prop k="outline_color" v="0,0,0,255"/>
                             <prop k="outline_style" v="solid"/>
                             <prop k="outline_width" v="0"/>
                             <prop k="outline_width_map_unit_scale" v="0,0"/>
@@ -2026,14 +2246,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="name">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -2042,10 +2254,21 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="name">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
         <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Line" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
             <id>20141001135655933</id>
-            <datasource>dbname='gis' host=cccs-postgis-public port=5432 user='docker' password='docker' sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="trans_sea_lane" (geom) sql=</datasource>
+            <datasource>dbname='cccs_gis' host=127.0.0.1 port=5432 user='gis' password='gis' sslmode=disable key='gid' srid=4326 type=MULTILINESTRING table="trans_sea_lane" (geom) sql=</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -2067,25 +2290,37 @@
             <provider encoding="System">postgres</provider>
             <previewExpression>COALESCE( "gid", '&lt;NULL>' )</previewExpression>
             <vectorjoins/>
+            <expressionfields/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="alki">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <renderer-v2 symbollevels="0" type="singleSymbol">
                 <symbols>
                     <symbol alpha="1" type="line" name="0">
                         <layer pass="0" class="SimpleLine" locked="0">
                             <prop k="capstyle" v="square"/>
-                            <prop k="color" v="11,135,230,255"/>
                             <prop k="customdash" v="5;2"/>
                             <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
+                            <prop k="line_color" v="11,135,230,255"/>
+                            <prop k="line_style" v="dot"/>
+                            <prop k="line_width" v="0.26"/>
+                            <prop k="line_width_unit" v="MM"/>
                             <prop k="offset" v="0"/>
                             <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
-                            <prop k="penstyle" v="dot"/>
                             <prop k="use_custom_dash" v="0"/>
-                            <prop k="width" v="0.26"/>
                             <prop k="width_map_unit_scale" v="0,0"/>
-                            <prop k="width_unit" v="MM"/>
                         </layer>
                     </symbol>
                 </symbols>
@@ -2260,14 +2495,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="gid">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="alki">
-                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
-                </edittype>
-            </edittypes>
             <editform>/..</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -2276,6 +2503,17 @@
             <excludeAttributesWMS/>
             <excludeAttributesWFS/>
             <attributeactions/>
+            <edittypes>
+                <edittype widgetv2type="TextEdit" name="gid">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="alki">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype widgetv2type="TextEdit" name="source">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
         </maplayer>
     </projectlayers>
     <properties>
@@ -2385,6 +2623,9 @@
         </Macros>
         <WMSAccessConstraints type="QString"></WMSAccessConstraints>
         <WCSLayers type="QStringList"/>
+        <Legend>
+            <filterByMap type="bool">false</filterByMap>
+        </Legend>
         <SpatialRefSys>
             <ProjectCRSProj4String type="QString">+proj=longlat +datum=WGS84 +no_defs</ProjectCRSProj4String>
             <ProjectCrs type="QString">EPSG:4326</ProjectCrs>
